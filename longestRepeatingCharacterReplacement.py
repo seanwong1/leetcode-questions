@@ -17,6 +17,4 @@ def characterReplacement(string, replacements):
       counts[string[left]] -= 1
       left += 1
 
-  return (right - left + 1)
-
-print(characterReplacement("ABAB", 2))
+  return right - left + 1
