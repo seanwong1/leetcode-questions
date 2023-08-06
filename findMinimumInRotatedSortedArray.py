@@ -13,5 +13,3 @@ def findMin(nums):
       else:
          right = midpoint - 1
   return minimum
-
-print(findMin([4,5,6,7,0,1,2]))
