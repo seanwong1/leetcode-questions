@@ -16,7 +16,3 @@ def insert(intervals, newInterval):
   result.append(newInterval)
 
   return result
-
-intervals = [[1,5]]
-newInterval = [6, 8]
-print(insert(intervals, newInterval))
