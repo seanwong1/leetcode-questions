@@ -15,6 +15,3 @@ def longestConsecutive(nums):
       result = length if length > result else result
 
   return result
-
-nums = [9,1,-3,2,4,8,3,-1,6,-2,-4,7]
-print(longestConsecutive(nums))
