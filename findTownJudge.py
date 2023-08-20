@@ -23,9 +23,3 @@ class Solution:
           return person
 
     return -1
-
-
-n = 1
-trust = []
-s = Solution()
-print(s.findJudge(n, trust))
