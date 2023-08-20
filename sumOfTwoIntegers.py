@@ -17,5 +17,3 @@ def getSum(a, b):
       return add(b, a)
 
   return add(a, b)
-
-print(getSum(16, -14))
