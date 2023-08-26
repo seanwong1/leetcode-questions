@@ -20,7 +20,3 @@ class Solution:
     lastHouse = helper(nums[1:])
     firstHouse = helper(nums[0:-1])
     return firstHouse if firstHouse >= lastHouse else lastHouse
-
-s = Solution()
-nums = [1]
-print(s.rob(nums))
