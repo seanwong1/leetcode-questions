@@ -12,12 +12,8 @@ class Solution:
       start2, end2 = newIntervals[-1]
 
       if end2 >= start1:
-        newIntervals[-1][1] = end1
+        newIntervals[-1][1] = end1 if end1 > end2 else end2
       elif start1 > end2:
         newIntervals.append(interval)
 
     return newIntervals
-
-intervals = [[1,4],[2,3]]
-s = Solution()
-print(s.merge(intervals))
