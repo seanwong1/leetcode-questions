@@ -8,12 +8,9 @@ class Solution:
     newIntervals = [intervals[0]]
 
     for interval in intervals:
-      start1, end1 = interval
-      start2, end2 = newIntervals[-1]
-
-      if end2 >= start1:
-        newIntervals[-1][1] = end1 if end1 > end2 else end2
-      elif start1 > end2:
+      if newIntervals[-1][1] >= interval[0]:
+        newIntervals[-1][1] = interval[1] if interval[1] > newIntervals[-1][1] else newIntervals[-1][1]
+      elif interval[0] > newIntervals[-1][1]:
         newIntervals.append(interval)
 
     return newIntervals
