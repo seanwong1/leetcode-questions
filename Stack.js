@@ -39,9 +39,3 @@ class Node {
     this.next = null;
   }
 }
-
-var stack = new Stack();
-stack.push(5);
-stack.push(6);
-stack.push(7);
-stack.pop();
