@@ -15,6 +15,3 @@ class Solution:
       left -= 1
       right += 1
     return count
-
-s = Solution()
-print(s.countSubstrings('aaa'))
