@@ -4,10 +4,16 @@ class Solution:
   def countSubstrings(self, s: str) -> int:
     count = 0
     for i in range(len(s)):
-      for j in range(i, len(s)):
-        substring = s[i:j + 1]
-        if substring == substring[::-1]:
+      counter = 0
+      while i - counter >= 0 and i + counter < len(s) and s[i - counter] == s[i + counter]:
+        if s[i - counter] == s[i + counter]:
           count += 1
+          counter += 1
+      counter = 0
+      while i - counter >= 0 and i + 1 + counter < len(s) and s[i - counter] == s[i + 1 + counter]:
+        if s[i - counter] == s[i + 1 + counter]:
+          count += 1
+          counter += 1
     return count
 
 s = Solution()
