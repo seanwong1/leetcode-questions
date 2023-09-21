@@ -16,9 +16,7 @@ class Solution:
       return None
 
     decimal = 0
-    for i in range(len(s) - 2, -1, -1):
-      if VALUES[s[i]] == None:
-        return None
+    for i in range(len(s) - 1):
       if VALUES[s[i]] < VALUES[s[i + 1]]:
         decimal -= VALUES[s[i]]
       else:
