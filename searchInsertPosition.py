@@ -10,13 +10,11 @@ class Solution:
       left = 0
       right = len(nums) - 1
       while left <= right:
-        if target < nums[left]:
-          return left
-        elif target > nums[right]:
-          return right + 1
+        midpoint = (left + right) // 2
+        if target < nums[midpoint]:
+          right = midpoint - 1
+        elif target > nums[midpoint]:
+          left = midpoint + 1
         else:
-          midpoint = (left + right) // 2
-          if target < nums[midpoint]:
-            right = midpoint - 1
-          else:
-            left = midpoint + 1
+          return midpoint
+      return right + 1
