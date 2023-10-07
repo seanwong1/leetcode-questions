@@ -11,14 +11,12 @@ class TreeNode:
 class Solution:
   def preorderTraversal(self, root: Optional[TreeNode]) -> List[int]:
     result = []
-
-    def helper(node):
-      if not node:
-        return
-      else:
+    storage = [root]
+    while storage:
+      node = storage.pop()
+      if node:
         result.append(node.val)
-        helper(node.left)
-        helper(node.right)
+        storage.append(node.right)
+        storage.append(node.left)
 
-    helper(root)
     return result
