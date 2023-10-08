@@ -8,17 +8,17 @@ class TreeNode:
     self.left = left
     self.right = right
 
-  class Solution:
-    def postorderTraversal(self, root: Optional[TreeNode]) -> List[int]:
-      result = []
+class Solution:
+  def postorderTraversal(self, root: Optional[TreeNode]) -> List[int]:
+    result = []
 
-      def helper(node):
-        if not node:
-          return
-        else:
-          helper(node.left)
-          helper(node.right)
-          result.append(node.val)
+    def helper(node):
+      if not node:
+        return
+      else:
+        helper(node.left)
+        helper(node.right)
+        result.append(node.val)
 
-      helper(root)
-      return result
+    helper(root)
+    return result
