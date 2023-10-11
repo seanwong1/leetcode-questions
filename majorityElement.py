@@ -18,6 +18,3 @@ class Solution:
         return num
 
     return None
-
-s = Solution()
-print(s.majorityElement([2,2,1,1,1,2,2]))
