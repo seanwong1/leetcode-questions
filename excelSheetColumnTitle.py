@@ -8,7 +8,7 @@ class Solution:
     while columnNumber > 0:
       columnNumber, letter = self.toBase(columnNumber, 26)
       title.append(chr(letter + 64))
-    return ''.join(title[::-1])
+    return ''.join(reversed(title))
 
   def toBase(self, n: int, base: int) -> Tuple[int, int]:
     position, remainder = divmod(n, base)
