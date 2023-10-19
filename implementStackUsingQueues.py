@@ -1,25 +1,33 @@
 # Leetcode 225
 
+from collections import deque
+
 class MyStack:
   def __init__(self):
-
+    self.queueOne = deque()
+    self.queueTwo = deque()
 
   def push(self, x: int) -> None:
-
+    self.queueOne.append(x)
 
   def pop(self) -> int:
+    while len(self.queueOne) > 1:
+      self.queueTwo.append(self.queueOne.popleft())
 
+    value = self.queueOne.popleft()
+    [self.queueOne, self.queueTwo] = [self.queueTwo, self.queueOne]
+
+    return value
 
   def top(self) -> int:
+    while len(self.queueOne) > 1:
+      self.queueTwo.append(self.queueOne.popleft())
 
+    value = self.queueOne[0]
+    self.queueTwo.append(self.queueOne.popleft())
+    [self.queueOne, self.queueTwo] = [self.queueTwo, self.queueOne]
+
+    return value
 
   def empty(self) -> bool:
-
-
-
-# Your MyStack object will be instantiated and called as such:
-obj = MyStack()
-obj.push(x)
-param_2 = obj.pop()
-param_3 = obj.top()
-param_4 = obj.empty()
+    return len(self.queueOne) == 0
