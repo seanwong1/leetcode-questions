@@ -4,18 +4,14 @@
 
 class Solution:
   def firstBadVersion(self, n: int) -> int:
-    goodVersion = 0
+    goodVersion = 1
     badVersion = n
-    found = False
 
-    while not found:
-      midpoint = (badVersion + goodVersion + 1) // 2
+    while goodVersion <= badVersion:
+      midpoint = badVersion + (goodVersion - badVersion) // 2
       if isBadVersion(midpoint):
-        badVersion = midpoint
+        badVersion = midpoint - 1
       else:
-        goodVersion = midpoint
-
-      if goodVersion + 1 == badVersion:
-        found = True
+        goodVersion = midpoint + 1
 
     return badVersion
