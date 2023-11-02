@@ -4,7 +4,9 @@ from typing import List
 
 class NumArray:
   def __init__(self, nums: List[int]):
-    self.nums = nums
+    self.cumulative = [0]
+    for i in range(len(nums)):
+      self.cumulative.append(self.cumulative[i] + nums[i])
 
   def sumRange(self, left: int, right: int) -> int:
-    return sum(self.nums[left:right + 1])
+    return self.cumulative[right + 1] - self.cumulative[left]
