@@ -1,4 +1,4 @@
-# Leetcode 326
+# Leetcode 342
 
 import math
 
