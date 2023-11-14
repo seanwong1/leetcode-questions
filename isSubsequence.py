@@ -8,6 +8,3 @@ class Solution:
       return self.isSubsequence(s[1:], t[t.index(s[0]) + 1:])
     else:
       return False
-
-s = Solution()
-print(s.isSubsequence('', 'ahbgdc'))
