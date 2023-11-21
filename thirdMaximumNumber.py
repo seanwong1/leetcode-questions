@@ -4,14 +4,7 @@ from typing import List
 
 class Solution:
   def thirdMax(self, nums: List[int]) -> int:
-    nums = sorted(nums)
-    result = [nums.pop()]
-    counter = 1
+    numsSet = set(nums)
+    numsSet = sorted(numsSet)
 
-    while counter <= 2 and len(nums):
-      largest = nums.pop()
-      if result[-1] != largest:
-        result.append(largest)
-        counter += 1
-
-    return result[-1] if len(result) > 2 else max(result)
+    return numsSet[-1] if len(numsSet) < 3 else numsSet[-3]
