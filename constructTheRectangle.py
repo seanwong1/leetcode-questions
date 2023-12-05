@@ -5,10 +5,6 @@ import math
 
 class Solution:
   def constructRectangle(self, area: int) -> List[int]:
-    result = []
-    print(math.ceil(area ** (1 / 2)))
-    for width in range(1, math.floor(area ** (1 / 2)) + 1):
+    for width in range(math.floor(area ** (1 / 2)), 0, -1):
       if area % width == 0:
-        result = [area // width, width]
-
-    return result
+        return [area // width, width]
