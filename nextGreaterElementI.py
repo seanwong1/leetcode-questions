@@ -5,19 +5,19 @@ from typing import List
 class Solution:
   def nextGreaterElement(self, nums1: List[int], nums2: List[int]) -> List[int]:
     result = []
+    storage = []
+    nextGreater = {}
 
-    for num1 in range(len(nums1)):
-      for num2 in range(len(nums2)):
-        isGreater = 1
-        if nums1[num1] == nums2[num2]:
-          for i in range(num2, len(nums2)):
+    for num2 in nums2:
+      while storage and storage[-1] < num2:
+        nextGreater[storage.pop()] = num2
 
-            if nums2[i] > nums1[num1]:
-              result.append(nums2[i])
-              isGreater = 0
-              break
+      storage.append(num2)
 
-          if isGreater:
-            result.append(-1)
+    for num1 in nums1:
+      if num1 in nextGreater:
+        result.append(nextGreater[num1])
+      else:
+        result.append(-1)
 
     return result
