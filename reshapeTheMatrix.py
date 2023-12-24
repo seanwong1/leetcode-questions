@@ -7,14 +7,12 @@ class Solution:
     if len(mat) * len(mat[0]) != r * c:
       return mat
     else:
-      result = []
-      storage = []
-
-      for row in mat:
-        for num in row:
-          storage.append(num)
+      result = [[None for col in range(c)] for row in range(r)]
+      current = 0
 
       for row in range(r):
-        result.append(storage[row * c:row * c + c])
+        for col in range(c):
+          result[row][col] = mat[current // len(mat[0])][current % len(mat[0])]
+          current += 1
 
     return result
