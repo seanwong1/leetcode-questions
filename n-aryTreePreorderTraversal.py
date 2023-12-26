@@ -9,18 +9,17 @@ class Node:
 
 class Solution:
   def preorder(self, root: 'Node') -> List[int]:
-    if not root:
-      return []
+    result = []
+    storage = []
 
-    result = [root.val]
+    if root:
+      storage.append(root)
 
-    def helper(node):
-      if not node.children:
-        return
-      else:
-        for child in node.children:
-          result.append(child.val)
-          helper(child)
+    while storage:
+      node = storage.pop()
+      result.append(node.val)
 
-    helper(root)
+      for child in reversed(node.children):
+        storage.append(child)
+
     return result
