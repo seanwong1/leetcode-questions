@@ -12,6 +12,9 @@ class Solution:
     result = []
     storage = [root]
 
+    if not root:
+      return []
+
     while storage:
       node = storage.pop()
 
