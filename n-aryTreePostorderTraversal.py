@@ -10,14 +10,14 @@ class Node:
 class Solution:
   def postorder(self, root: 'Node') -> List[int]:
     result = []
+    storage = [root]
 
-    def helper(node):
-      if not node:
-        return
-      else:
-        for child in node.children:
-          helper(child)
-        result.append(node.val)
+    while storage:
+      node = storage.pop()
 
-    helper(root)
-    return result
+      for child in node.children:
+        storage.append(child)
+
+      result.append(node.val)
+
+    return reversed(result)
