@@ -10,16 +10,13 @@ class TreeNode:
 
 class Solution:
   def isUnivalTree(self, root: Optional[TreeNode]) -> bool:
-    storage = []
 
     def helper(node):
       if not node:
-        return
+        return True
+      elif node.val != root.val:
+        return False
       else:
-        helper(node.left)
-        storage.append(node.val)
-        helper(node.right)
+        return helper(node.left) and helper(node.right)
 
-
-    helper(root)
-    return all(node == storage[0] for node in storage)
+    return helper(root)
