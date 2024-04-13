@@ -5,22 +5,13 @@ from collections import Counter
 
 class Solution:
   def minCostToMoveChips(self, position: List[int]) -> int:
-    coins = Counter(position)
-    result = {}
     evens = 0
     odds = 0
 
-    for key, value in coins.items():
-      if key % 2 == 0:
-        evens += value
+    for coin in position:
+      if coin % 2 == 0:
+        evens += 1
       else:
-        odds += value
+        odds += 1
 
-    for key, value in coins.items():
-      result[key] = 0
-      if key % 2 == 0:
-        result[key] += odds
-      else:
-        result[key] += evens
-
-    return min(result.values())
+    return min(evens, odds)
